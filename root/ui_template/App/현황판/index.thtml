@@ -1,5 +1,5 @@
 <!-- 0 -->
-<div class="ui vertical inverted segments" style="width: 100%;">
+<div class="ui segments" style="width: 100%;">
 
 	<style>
 		p {
@@ -7,7 +7,8 @@
 		}
 
 		.l_n   { display: block; overflow:hidden; white-space: nowrap; text-overflow: ellipsis; width: 80px; max-width: 80px; }
-		.l_n_b { display: block; overflow:hidden; white-space: nowrap; text-overflow: ellipsis; width: 80px; max-width: 80px; font-size: 15px; }
+		.l_n_b { display: block; overflow:hidden; white-space: nowrap; text-overflow: ellipsis; width: 80px; max-width: 80px; font-size: 14px; color: #FF0000; font-weight: 800; }
+		.l_n_s { display: block; overflow:hidden; white-space: nowrap; text-overflow: ellipsis; width: 80px; max-width: 80px; font-size: 14px; color: #0000FF; font-weight: 800; }
 
 		.l_c { display: block; overflow:hidden; width: 40px; }
 		.l_u { display: block; overflow:hidden; width: 90px !important; }
@@ -41,33 +42,58 @@
 
 	<!-- 1 -->
 	<div class="ui horizontal segments">
-		<button id="btn-re-p" class="ui button">KOSPI 새로 고침</button>
-		<button id="btn-re-q" class="ui button">KOSDAQ 새로 고침</button>
-		<div class="ui segment">
-			<h3 class="ui header">KOSPI
-				&nbsp;<span id="p_c" class="k_c">{{cost}}</span>
-				&nbsp;<span id="p_u" class="k_u">{{updn}}</span>
-				&nbsp;<span id="p_r" class="k_r">{{rate}}</span>
-			</h3>
+		<div class="ui tiny form" style="width: 350px; height: 60px;">
+			<div class="field">
+				<div class="two fields">
+					<div class="field">
+						<label>KOSPI</label>
+						&nbsp;<span id="p_c" class="k_c">{{cost}}</span>
+						&nbsp;<span id="p_u" class="k_u">{{updn}}</span>
+						&nbsp;<span id="p_r" class="k_r">{{rate}}</span>
+					</div>
+					<div class="field">
+						<label>KOSDAQ</label>
+						&nbsp;<span id="q_c" class="k_c">{{cost}}</span>
+						&nbsp;<span id="q_u" class="k_u">{{updn}}</span>
+						&nbsp;<span id="q_r" class="k_r">{{rate}}</span>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="ui segment">
-			<h3 class="ui header">KOSDAQ
-				&nbsp;<span id="q_c" class="k_c">{{cost}}</span>
-				&nbsp;<span id="q_u" class="k_u">{{updn}}</span>
-				&nbsp;<span id="q_r" class="k_r">{{rate}}</span>
-			</h3>
+		<div class="ui tiny form" style="width: 600px; height: 60px;">
+			<div class="field">
+				<div class="four fields">
+					<div class="field">
+						<label>상가 체크 %값(숫자만 입력)</label>
+						<input id="input-up_check_limit" type="text" placeholder="기본 값 4">
+					</div>
+					<div class="field">
+						<label>하가 체크 %값(-와 숫자 입력)</label>
+						<input id="input-down_check_limit" type="text" placeholder="기본 값 -4">
+					</div>
+
+					<div class="field">
+						<label>KOSPI 새로고침</label>
+						<button id="btn-re-p" class="ui tiny button">코스피</button>
+					</div>
+					<div class="field">
+						<label>KOSDAQ 새로고침</label>
+						<button id="btn-re-q" class="ui tiny button">코스닥</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<!-- 1 -->
-	<div class="ui vertical segments" style=" height: 960px; overflow-y: auto;">
+	<div class="ui vertical segments" style="margin-top: 0px; height: 960px; overflow-y: auto;">
 
 		<!-- 2 -->
 		<div class="ui segment" style="font-size: 11px;">
 			<h3 class="ui header">KOSPI</h3>
 			<div class="ui horizontal segments" style="padding: 5px;">
 				<div id="list_kospi0">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -75,7 +101,7 @@
 					</div>
 				</div>
 				<div id="list_kospi1">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -83,7 +109,7 @@
 					</div>
 				</div>
 				<div id="list_kospi2">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -91,7 +117,7 @@
 					</div>
 				</div>
 				<div id="list_kospi3">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -99,7 +125,7 @@
 					</div>
 				</div>
 				<div id="list_kospi4">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -107,7 +133,7 @@
 					</div>
 				</div>
 				<div id="list_kospi5">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -115,7 +141,7 @@
 					</div>
 				</div>
 				<div id="list_kospi6">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -123,7 +149,15 @@
 					</div>
 				</div>
 				<div id="list_kospi7">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
+						<p class="l_n">{{name}}</p>
+						<p class="l_c">{{cost}}</p>
+						<p class="l_u">{{updn}}</p>
+						<p class="l_r">{{rate}}</p>
+					</div>
+				</div>
+				<div id="list_kospi8">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -139,7 +173,7 @@
 			<h3 class="ui header">KOSDAQ</h3>
 			<div class="ui horizontal segments" style="padding: 5px;">
 				<div id="list_kosdaq0">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -147,7 +181,7 @@
 					</div>
 				</div>
 				<div id="list_kosdaq1">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -155,7 +189,7 @@
 					</div>
 				</div>
 				<div id="list_kosdaq2">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -163,7 +197,7 @@
 					</div>
 				</div>
 				<div id="list_kosdaq3">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -171,7 +205,7 @@
 					</div>
 				</div>
 				<div id="list_kosdaq4">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -179,7 +213,7 @@
 					</div>
 				</div>
 				<div id="list_kosdaq5">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -187,7 +221,7 @@
 					</div>
 				</div>
 				<div id="list_kosdaq6">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
@@ -195,7 +229,15 @@
 					</div>
 				</div>
 				<div id="list_kosdaq7">
-					<div id="{{code}}" style="display: flex;">
+					<div id="{{code}}" style="display: flex; height: 30px;">
+						<p class="l_n">{{name}}</p>
+						<p class="l_c">{{cost}}</p>
+						<p class="l_u">{{updn}}</p>
+						<p class="l_r">{{rate}}</p>
+					</div>
+				</div>
+				<div id="list_kosdaq8">
+					<div id="{{code}}" style="display: flex; height: 30px;">
 						<p class="l_n">{{name}}</p>
 						<p class="l_c">{{cost}}</p>
 						<p class="l_u">{{updn}}</p>
