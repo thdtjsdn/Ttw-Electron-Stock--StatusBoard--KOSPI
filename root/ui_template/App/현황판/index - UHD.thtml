@@ -118,7 +118,6 @@
 		</div>
 
 		<!-- 2 -->
-		<!--
 		<div class="ui segment" style="font-size: 11px;">
 			<h3 class="ui header">KOSDAQ</h3>
 			<div class="ui horizontal segments" style="padding: 5px;">
@@ -142,7 +141,6 @@
 				<div id="list_kosdaq17"><div id="{{code}}" style="display: flex; height: 30px;"><p class="l_n">{{name}}</p><p class="l_c">{{cost}}</p><p class="l_u">{{updn}}</p><p class="l_r">{{rate}}</p></div></div>
 			</div>
 		</div>
-		-->
 
 	</div>
 
